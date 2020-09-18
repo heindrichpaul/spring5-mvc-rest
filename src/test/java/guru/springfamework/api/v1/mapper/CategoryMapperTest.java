@@ -22,6 +22,7 @@ class CategoryMapperTest {
         //when
         CategoryDTO categoryDTO = categoryMapper.categoryToCategoryDTO(category);
 
+        //then
         assertEquals(ID, categoryDTO.getId());
         assertEquals(NAME, categoryDTO.getName());
     }

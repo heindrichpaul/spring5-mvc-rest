@@ -66,4 +66,5 @@ class CategoryServiceTest {
         assertEquals(NAME, categoryDTO.getName());
 
     }
+
 }

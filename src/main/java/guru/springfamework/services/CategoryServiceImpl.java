@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
  */
 @Service
 public class CategoryServiceImpl implements CategoryService {
+
     private final CategoryMapper categoryMapper;
     private final CategoryRepository categoryRepository;
 
@@ -23,7 +24,9 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public List<CategoryDTO> getAllCategories() {
-        return categoryRepository.findAll().stream()
+
+        return categoryRepository.findAll()
+                .stream()
                 .map(categoryMapper::categoryToCategoryDTO)
                 .collect(Collectors.toList());
     }
