@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 /**
  * Created by heindrichpaul on 18/09/2020
  */
-
 @Component
 public class Bootstrap implements CommandLineRunner {
 
@@ -19,22 +18,21 @@ public class Bootstrap implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args) throws Exception {
-
+    public void run(String... args) {
         Category fruits = new Category();
         fruits.setName("Fruits");
 
         Category dried = new Category();
-        fruits.setName("Dried");
+        dried.setName("Dried");
 
         Category fresh = new Category();
-        fruits.setName("Fresh");
+        fresh.setName("Fresh");
 
         Category exotic = new Category();
-        fruits.setName("Exotic");
+        exotic.setName("Exotic");
 
         Category nuts = new Category();
-        fruits.setName("Nuts");
+        nuts.setName("Nuts");
 
         categoryRepository.save(fruits);
         categoryRepository.save(dried);
@@ -42,7 +40,8 @@ public class Bootstrap implements CommandLineRunner {
         categoryRepository.save(exotic);
         categoryRepository.save(nuts);
 
-        System.out.println("Data loaded = "+ categoryRepository.count());
+
+        System.out.println("Data Loaded = " + categoryRepository.count());
 
     }
 }
