@@ -8,7 +8,6 @@ import org.mapstruct.factory.Mappers;
 /**
  * Created by heindrichpaul on 18/09/2020
  */
-
 @Mapper
 public interface CategoryMapper {
 

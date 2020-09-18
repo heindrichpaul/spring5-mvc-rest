@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 /**
  * Created by heindrichpaul on 18/09/2020
  */
-
 @Controller
 @RequestMapping("/api/v1/categories/")
 public class CategoryController {
