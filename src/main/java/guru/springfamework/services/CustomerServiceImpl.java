@@ -88,7 +88,7 @@ public class CustomerServiceImpl implements CustomerService {
 
             CustomerDTO returnDto = customerMapper.customerToCustomerDTO(customerRepository.save(customer));
 
-            returnDto.setCustomerUrl("/api/v1/customer/" + id);
+            returnDto.setCustomerUrl(urlPrefix + id);
 
             return returnDto;
 
