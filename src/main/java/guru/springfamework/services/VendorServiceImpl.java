@@ -7,6 +7,7 @@ import guru.springfamework.controllers.v1.VendorController;
 import guru.springfamework.domain.Vendor;
 import guru.springfamework.repositories.VendorRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -71,7 +72,7 @@ public class VendorServiceImpl implements VendorService {
                 .map(vendor -> {
                     //todo if more properties, add more if statements
 
-                    if (vendorDTO.getName() != null) {
+                    if (!StringUtils.isEmpty(vendorDTO.getName())) {
                         vendor.setName(vendorDTO.getName());
                     }
 
