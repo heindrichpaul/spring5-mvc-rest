@@ -4,8 +4,9 @@ import guru.springframework.controllers.RestResponseEntityExceptionHandler;
 import guru.springframework.model.CustomerDTO;
 import guru.springframework.services.CustomerService;
 import guru.springframework.services.ResourceNotFoundException;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -104,12 +105,8 @@ class CustomerControllerTest extends AbstractRestControllerTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON)
                 .content(asJsonString(customer)))
-                .accept(MediaType.APPLICATION_JSON)
-                    .contentType(MediaType.APPLICATION_JSON)
-                    .content(asJsonString(customer)))
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("$.firstname", equalTo("Fred")))
-                .andExpect(jsonPath("$.customer_url", equalTo("/api/v1/customers/1")));
                 .andExpect(jsonPath("$.customerUrl", equalTo(CustomerController.BASE_URL + "/1")));
     }
 

@@ -1,8 +1,10 @@
 package guru.springframework.controllers.v1;
 
-import guru.springfamework.api.v1.model.CategoryDTO;
-import guru.springfamework.api.v1.model.CatorgoryListDTO;
-import guru.springfamework.services.CategoryService;
+import guru.springframework.api.v1.model.CategoryDTO;
+import guru.springframework.api.v1.model.CategoryListDTO;
+import guru.springframework.services.CategoryService;
+import io.swagger.annotations.Info;
+import io.swagger.annotations.SwaggerDefinition;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 

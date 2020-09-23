@@ -1,15 +1,5 @@
-package guru.springfamework.services;
+package guru.springframework.services;
 
-import guru.springfamework.api.v1.mapper.CustomerMapper;
-import guru.springfamework.api.v1.model.CustomerDTO;
-import guru.springfamework.bootstrap.Bootstrap;
-import guru.springfamework.domain.Customer;
-import guru.springfamework.repositories.CategoryRepository;
-import guru.springfamework.repositories.CustomerRepository;
-import guru.springfamework.repositories.VendorRepository;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import guru.springframework.api.v1.mapper.CustomerMapper;
 import guru.springframework.bootstrap.Bootstrap;
 import guru.springframework.domain.Customer;
@@ -17,9 +7,10 @@ import guru.springframework.model.CustomerDTO;
 import guru.springframework.repositories.CategoryRepository;
 import guru.springframework.repositories.CustomerRepository;
 import guru.springframework.repositories.VendorRepository;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;

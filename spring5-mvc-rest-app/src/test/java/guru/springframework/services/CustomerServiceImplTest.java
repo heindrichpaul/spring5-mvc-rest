@@ -4,8 +4,9 @@ import guru.springframework.api.v1.mapper.CustomerMapper;
 import guru.springframework.domain.Customer;
 import guru.springframework.model.CustomerDTO;
 import guru.springframework.repositories.CustomerRepository;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 

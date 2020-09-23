@@ -5,25 +5,28 @@ import guru.springframework.api.v1.model.VendorDTO;
 import guru.springframework.api.v1.model.VendorListDTO;
 import guru.springframework.domain.Vendor;
 import guru.springframework.repositories.VendorRepository;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.core.IsEqual.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.times;
 
+@ExtendWith(MockitoExtension.class)
 public class VendorServiceImplTest {
 
     public static final String NAME_1 = "My Vendor";
@@ -36,9 +39,8 @@ public class VendorServiceImplTest {
 
     VendorService vendorService;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
-        MockitoAnnotations.initMocks(this);
 
         vendorService = new VendorServiceImpl(VendorMapper.INSTANCE, vendorRepository);
     }
@@ -62,18 +64,19 @@ public class VendorServiceImplTest {
     }
 
 
-
-    @Test(expected = ResourceNotFoundException.class)
+    @Test
     public void getVendorByIdNotFound() throws Exception {
-        //given
-        //mockito BBD syntax since mockito 1.10.0
-        given(vendorRepository.findById(anyLong())).willReturn(Optional.empty());
+        assertThrows(ResourceNotFoundException.class, () -> {
+            //given
+            //mockito BBD syntax since mockito 1.10.0
+            given(vendorRepository.findById(anyLong())).willReturn(Optional.empty());
 
-        //when
-        VendorDTO vendorDTO = vendorService.getVendorById(1L);
+            //when
+            VendorDTO vendorDTO = vendorService.getVendorById(1L);
 
-        //then
-        then(vendorRepository).should(times(1)).findById(anyLong());
+            //then
+            then(vendorRepository).should(times(1)).findById(anyLong());
+        });
 
     }
 

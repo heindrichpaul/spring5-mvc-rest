@@ -2,9 +2,9 @@ package guru.springframework.api.v1.mapper;
 
 import guru.springframework.api.v1.model.VendorDTO;
 import guru.springframework.domain.Vendor;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class VendorMapperTest {
 
@@ -13,7 +13,7 @@ public class VendorMapperTest {
     VendorMapper vendorMapper = VendorMapper.INSTANCE;
 
     @Test
-    public void vendorToVendorDTO() throws Exception {
+    void vendorToVendorDTO() {
         //given
         Vendor vendor = new Vendor();
         vendor.setName(NAME);
@@ -26,7 +26,7 @@ public class VendorMapperTest {
     }
 
     @Test
-    public void vendorDTOtoVendor() throws Exception {
+    public void vendorDTOtoVendor() {
         //given
         VendorDTO vendorDTO = new VendorDTO();
         vendorDTO.setName(NAME);
